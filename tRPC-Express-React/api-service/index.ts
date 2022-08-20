@@ -3,7 +3,7 @@ import * as trpc from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import cors from "cors";
 import getUser from "./user";
-import zod, { z } from "zod";
+import { z } from "zod";
 
 interface ChatMessage {
   user: string;
@@ -32,7 +32,7 @@ const appRouter = trpc
     }),
     resolve({ input }) {
       messages.push(input);
-      return input;
+      return "Messages added successfully";
     },
   });
 
